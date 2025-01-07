@@ -1,0 +1,30 @@
+{
+  "id": "86c6eb65",
+  "name": "Get All Font Families",
+  "host": [
+    {
+      "app": "XD",
+      "minVersion": "57.1.12"
+    }
+  ],
+  "version": "1.0.0",
+  "icons": [
+    {
+      "width": 24,
+      "height": 24,
+      "path": "images/icon@1x.png"
+    },
+    {
+      "width": 48,
+      "height": 48,
+      "path": "images/icon@2x.png"
+    }
+  ],
+  "uiEntryPoints": [
+    {
+      "type": "panel",
+      "label": "Get All Font Families",
+      "panelId": "GetFontFamilies"
+    }
+  ]
+}
