@@ -20,6 +20,13 @@ function create() {
             strong {
                 font-weight: bold;
             }
+            
+            #textarea {
+                width: 100%;
+                min-height: 200px;
+                background-color: #fff;
+                resize: vertical;
+            }
         </style>
         <form method="dialog" id="main">
             <button id="ok" type="submit" uxp-variant="cta">
@@ -29,6 +36,8 @@ function create() {
 
         <div id="results"></div>
         <ul id="list"></li>
+        
+        <textarea id="textarea"></textarea>
         `
 
     panel = document.createElement("div");
@@ -46,9 +55,8 @@ function listFonts() {
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = "";  // 一度クリアする
 
-    // <ul id="list"> にリストを追加
-    const list = document.getElementById("list");
-    list.innerHTML = "";  // 一度クリアする
+    const textarea = document.getElementById("textarea");
+    textarea.value = ""; // textareaの中身をクリアする
 
     // アートボードが選択されていない場合の処理
     const selectedArtboard = selection.items.find(item => item instanceof Artboard);
@@ -93,9 +101,10 @@ function listFonts() {
     console.log(fontMap);
 
     fontMap.forEach((weights, fontFamily) => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `Font Family: <strong>${fontFamily}</strong><br>Font Weight: <strong>${weights.join(", ")}</strong>`;
-        list.appendChild(listItem);
+        let text = `Font Family: ${fontFamily}
+Font Weight: ${weights.join(", ")}`;
+
+        textarea.value += text + "\n\n";
     });
 }
 
